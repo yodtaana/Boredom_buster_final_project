@@ -47,7 +47,6 @@ def search():
 
     if 'activity' in data:
         activity = data['activity']
-        activity_type = data['type']
         return render_template('results.html', activity=activity)
     else:
         suggestions = []
