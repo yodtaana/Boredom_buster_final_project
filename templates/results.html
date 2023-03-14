@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+{% extends "base.html" %}
+<head>
+    {% block title %}
+        Bust your boredom with this activity!
+    {% endblock %}
+{% block content %}
+</head>
+    <style>
+        body {
+            background-color: #e0f2f1;
+        }
+        h1 {
+            text-align: center;
+            color: Black;
+            font-size: 40px;
+            margin-top: 50px;
+        }
+        p {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+<body>
+    <h1>Bust your boredom with this activity!</h1>
+    <p><strong>Activity:</strong> {{ activity }}</p>
+    <div style="text-align: center; margin-top: 50px">
+        <a href="https://www.facebook.com/sharer.php?u={{request.url}}" target="_blank">
+            <img src="{{url_for('static', filename='facebook.png')}}" alt="Facebook Share" height="50" width="50">
+        </a>
+        <a href="https://twitter.com/intent/tweet?url={{request.url}}" target="_blank">
+            <img src="{{url_for('static', filename='twitter.png')}}" alt="Twitter Share" height="50" width="80">
+        </a>
+        <p>Share the activity you are doing with your friends!!</p>
+    </div>
+    {% if suggestions %}
+        <h2>Other activity ideas:</h2>
+        <p>Sorry we could generate an activity at the moment but here are some other activities you can try</p>
+        <ul>
+        {% for suggestion in suggestions %}
+            <li>{{ suggestion }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <div style="text-align: center; margin-top: 50px">
+    <a href="/" style="display: inline-block; background-color: #2196F3; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Back to main page</a>
+    </div>
+
+{% endblock %}
+</body>
+</html>
+
