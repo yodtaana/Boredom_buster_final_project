@@ -33,13 +33,7 @@ def home():
 @app.route('/search', methods=['POST'])
 def search():
     participants = request.form['participants']
-    price_range = request.form.get('price')
-
-    params = {}
-    if price_range:
-        min_price, max_price = price_range.split(',')
-        params['minprice'] = min_price
-        params['maxprice'] = max_price
+    price_range = tuple(float(x) for x in request.form['price'].split(','))
 
     response = requests.get("https://www.boredapi.com/api/activity",
                             params={"participants": participants, "price": price_range})
