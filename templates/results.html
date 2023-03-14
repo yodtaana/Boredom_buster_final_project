@@ -28,10 +28,10 @@
     <h1>Bust your boredom with this activity!</h1>
     <p><strong>Activity:</strong> {{ activity }}</p>
     <div style="text-align: center; margin-top: 50px">
-        <a href="https://www.facebook.com/sharer.php?u={{request.url}}" target="_blank">
+        <a href="https://www.facebook.com/sharer.php?u=&quote=Boredom Buster generated an activity for me. Check it out!!       {{activity}}" target="_blank">
             <img src="{{url_for('static', filename='facebook.png')}}" alt="Facebook Share" height="50" width="50">
         </a>
-        <a href="https://twitter.com/intent/tweet?url={{request.url}}" target="_blank">
+        <a href="https://twitter.com/intent/tweet?text=Boredom Buster generated an activity for me. Check it out!!      {{activity}}" target="_blank">
             <img src="{{url_for('static', filename='twitter.png')}}" alt="Twitter Share" height="50" width="80">
         </a>
         <p>Share the activity you are doing with your friends!!</p>
@@ -52,4 +52,3 @@
 {% endblock %}
 </body>
 </html>
-
